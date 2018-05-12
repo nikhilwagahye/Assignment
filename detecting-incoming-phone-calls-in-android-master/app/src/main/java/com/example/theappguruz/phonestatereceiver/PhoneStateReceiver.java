@@ -23,7 +23,7 @@ public class PhoneStateReceiver extends BroadcastReceiver {
             SharedPreferences.Editor editor = pref.edit();
 
             if (intent.getAction().equals("android.intent.action.NEW_OUTGOING_CALL")) {
-                Toast.makeText(context, "OUTGOING Call", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context, "OUTGOING Call", Toast.LENGTH_SHORT).show();
                 editor.putBoolean("outgoing", true);
                 editor.commit();
             } else {
