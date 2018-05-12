@@ -24,7 +24,7 @@ public class PhoneStateReceiver extends BroadcastReceiver {
 
             System.out.println("Receiver start");
             String state = intent.getStringExtra(TelephonyManager.EXTRA_STATE);
-            String incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
+            final String incomingNumber = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
 
             if (state.equals(TelephonyManager.EXTRA_STATE_RINGING)) {
                 Toast.makeText(context, "Incoming Call State", Toast.LENGTH_SHORT).show();
@@ -56,6 +56,7 @@ public class PhoneStateReceiver extends BroadcastReceiver {
                         public void run() {
                             Intent intentone = new Intent(context.getApplicationContext(), PopupActivity.class);
                             intentone.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intentone.putExtra("phoneNo", incomingNumber);
                             context.startActivity(intentone);
                         }
                     }, 2000);

@@ -3,22 +3,19 @@
     package="com.example.theappguruz.phonestatereceiver">
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/NoActionBar">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <receiver android:name=".PhoneStateReceiver">
@@ -30,6 +27,17 @@
         <activity
             android:name=".PopupActivity"
             android:theme="@style/Theme.Transparent" />
+
+        <activity android:name=".CallEntryActivity">
+
+        </activity>
+        <activity android:name=".ListOfCallsDetailsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
